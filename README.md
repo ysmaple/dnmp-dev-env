@@ -13,4 +13,11 @@ nginx默认配置php74
         include        fastcgi-php.conf;
         include        fastcgi_params;
 ```
-没了
+部署
+```angular2html
+docker-compose up -d
+```
+卸载
+```angular2html
+docker-compose down
+```
