@@ -37,4 +37,4 @@ WORKDIR /www
 
 # Set the entrypoint and default command to use the configuration directory
 ENTRYPOINT ["consul"]
-CMD ["agent", "-client", "0.0.0.0", "-config-dir=/config/conf.d","-data-dir=/config/data"]
+CMD ["agent","-dev", "-client", "0.0.0.0", "-config-dir=/config/conf.d","-data-dir=/config/data"]
