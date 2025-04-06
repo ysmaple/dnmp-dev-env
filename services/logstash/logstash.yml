@@ -1,0 +1,12 @@
+logstash:
+  image: logstash:${LOGSTASH_VERSION}  # 使用环境变量指定 Logstash 版本
+  container_name: logstash  # 指定容器名称
+  hostname: logstash  # 设置主机名
+  restart: always  # 容器崩溃后自动重启
+  depends_on:
+    - elasticsearch  # 确保 Elasticsearch 在 Logstash 之前启动
+  environment:
+    TZ: "$TZ"  # 设置时区
+  ports:
+    - "${LOGSTASH_HOST_PORT_C}:9600"  # 映射 Logstash 的 HTTP API 端口
+    - "${LOGSTASH_HOST_PORT_S}:5044"  # 映射 Logstash 的 Beats 输入端口

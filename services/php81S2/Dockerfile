@@ -38,7 +38,7 @@ ENV COMPOSER_HOME=/tmp/composer
 RUN apk --no-cache add shadow && usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 RUN apk add --no-cache git
-WORKDIR /old/after_sales_hyperf
+WORKDIR /old/plm_system_hyperf
 
 
 #ENTRYPOINT ["php"]
