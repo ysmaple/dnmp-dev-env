@@ -1,31 +1,31 @@
 version: "3"
 services:
-  nginx:
-    build:
-      context: ./services/nginx
-      args:
-        NGINX_VERSION: nginx:${NGINX_VERSION}
-        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-        NGINX_INSTALL_APPS: ${NGINX_INSTALL_APPS}
-    container_name: nginx
-    ports:
-      - "${NGINX_HTTP_HOST_PORT}:80"
-      - "${NGINX_HTTPS_HOST_PORT}:443"
-    volumes:
-      - ${SOURCE_DIR}:/www/:rw
-      - ${OLD_SOURCE_DIR}:/old/:rw
-      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
-      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
-      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
-      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
-      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
-      - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
-    environment:
-      TZ: "$TZ"
-    restart: always
-    networks:
-      default:
-        ipv4_address: 10.0.0.10
+#  nginx:
+#    build:
+#      context: ./services/nginx
+#      args:
+#        NGINX_VERSION: nginx:${NGINX_VERSION}
+#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+#        NGINX_INSTALL_APPS: ${NGINX_INSTALL_APPS}
+#    container_name: nginx
+#    ports:
+#      - "${NGINX_HTTP_HOST_PORT}:80"
+#      - "${NGINX_HTTPS_HOST_PORT}:443"
+#    volumes:
+#      - ${SOURCE_DIR}:/www/:rw
+#      - ${OLD_SOURCE_DIR}:/old/:rw
+#      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
+#      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
+#      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
+#      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
+#      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
+#      - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
+#    environment:
+#      TZ: "$TZ"
+#    restart: always
+#    networks:
+#      default:
+#        ipv4_address: 10.0.0.10
       # 可以把-default 改成下列配置，以固定容器IP
       #default:
       #  ipv4_address: 10.0.0.10
