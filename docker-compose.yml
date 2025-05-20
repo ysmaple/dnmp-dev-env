@@ -1,61 +1,61 @@
 version: "3"
 services:
-#  nginx:
-#    build:
-#      context: ./services/nginx
-#      args:
-#        NGINX_VERSION: nginx:${NGINX_VERSION}
-#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-#        NGINX_INSTALL_APPS: ${NGINX_INSTALL_APPS}
-#    container_name: nginx
-#    ports:
-#      - "${NGINX_HTTP_HOST_PORT}:80"
-#      - "${NGINX_HTTPS_HOST_PORT}:443"
-#    volumes:
-#      - ${SOURCE_DIR}:/www/:rw
-#      - ${OLD_SOURCE_DIR}:/old/:rw
-#      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
-#      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
-#      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
-#      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
-#      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
-#      - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
-#    environment:
-#      TZ: "$TZ"
-#    restart: always
-#    networks:
-#      default:
-#        ipv4_address: 10.0.0.10
-      # 可以把-default 改成下列配置，以固定容器IP
-      #default:
-      #  ipv4_address: 10.0.0.10
-#
-#  php:
-#    build:
-#      context: ./services/php
-#      args:
-#        PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
-#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-#        COMPOSER_URL: ${COMPOSER_URL}
-#        PHP_EXTENSIONS: ${PHP_EXTENSIONS}
-#        TZ: "$TZ"
-#    container_name: php
-#    expose:
-#      - 9502
-#    extra_hosts:
-#      - "www.site1.com:172.17.0.1"
-#    volumes:
-#      - ${SOURCE_DIR}:/www/:rw
-#      - ${OLD_SOURCE_DIR}:/old/:rw
-#      - ${PHP_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-#      - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-#      - ${PHP_LOG_DIR}:/var/log/php
-#      - ${DATA_DIR}/composer:/tmp/composer
-#    restart: always
-#    cap_add:
-#      - SYS_PTRACE
-#    networks:
-#      - default
+  #  nginx:
+  #    build:
+  #      context: ./services/nginx
+  #      args:
+  #        NGINX_VERSION: nginx:${NGINX_VERSION}
+  #        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #        NGINX_INSTALL_APPS: ${NGINX_INSTALL_APPS}
+  #    container_name: nginx
+  #    ports:
+  #      - "${NGINX_HTTP_HOST_PORT}:80"
+  #      - "${NGINX_HTTPS_HOST_PORT}:443"
+  #    volumes:
+  #      - ${SOURCE_DIR}:/www/:rw
+  #      - ${OLD_SOURCE_DIR}:/old/:rw
+  #      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
+  #      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
+  #      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
+  #      - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
+  #      - ${NGINX_FASTCGI_PARAMS}:/etc/nginx/fastcgi_params:ro
+  #      - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
+  #    environment:
+  #      TZ: "$TZ"
+  #    restart: always
+  #    networks:
+  #      default:
+  #        ipv4_address: 10.0.0.10
+  # 可以把-default 改成下列配置，以固定容器IP
+  #default:
+  #  ipv4_address: 10.0.0.10
+  #
+  #  php:
+  #    build:
+  #      context: ./services/php
+  #      args:
+  #        PHP_VERSION: php:${PHP_VERSION}-fpm-alpine
+  #        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #        COMPOSER_URL: ${COMPOSER_URL}
+  #        PHP_EXTENSIONS: ${PHP_EXTENSIONS}
+  #        TZ: "$TZ"
+  #    container_name: php
+  #    expose:
+  #      - 9502
+  #    extra_hosts:
+  #      - "www.site1.com:172.17.0.1"
+  #    volumes:
+  #      - ${SOURCE_DIR}:/www/:rw
+  #      - ${OLD_SOURCE_DIR}:/old/:rw
+  #      - ${PHP_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+  #      - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+  #      - ${PHP_LOG_DIR}:/var/log/php
+  #      - ${DATA_DIR}/composer:/tmp/composer
+  #    restart: always
+  #    cap_add:
+  #      - SYS_PTRACE
+  #    networks:
+  #      - default
 
   #  php80:
   #    build:
@@ -84,45 +84,76 @@ services:
   #        ipv4_address: 10.0.0.8
 
 
-#  php82:
-#    build:
-#      context: ./services/php82
-#      args:
-#        PHP_VERSION: php:${PHP82_VERSION}-fpm-alpine
-#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-#        COMPOSER_URL: ${COMPOSER_URL}
-#        PHP_EXTENSIONS: ${PHP82_EXTENSIONS}
-#        TZ: "$TZ"
-#    container_name: php82
-#    expose:
-#      - 9501
-#    ports:
-#      - "9701:9501"
-#      - "9702:9601"
-#      - "9703:9602"
-#    volumes:
-#      - ${SOURCE_DIR}:/www/:rw
-#      - ${OLD_SOURCE_DIR}:/old/:rw
-#      - ${PHP82_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-#      - ${PHP82_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-#      - ${PHP82_LOG_DIR}:/var/log/php
-#      - ${DATA_DIR}/composer:/tmp/composer
-#    restart: always
-#    cap_add:
-#      - SYS_PTRACE
-#    networks:
-#      default:
-#        ipv4_address: 10.0.0.23
-  dms_data_center:
+  #  php82:
+  #    build:
+  #      context: ./services/php82
+  #      args:
+  #        PHP_VERSION: php:${PHP82_VERSION}-fpm-alpine
+  #        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #        COMPOSER_URL: ${COMPOSER_URL}
+  #        PHP_EXTENSIONS: ${PHP82_EXTENSIONS}
+  #        TZ: "$TZ"
+  #    container_name: php82
+  #    expose:
+  #      - 9501
+  #    ports:
+  #      - "9701:9501"
+  #      - "9702:9601"
+  #      - "9703:9602"
+  #    volumes:
+  #      - ${SOURCE_DIR}:/www/:rw
+  #      - ${OLD_SOURCE_DIR}:/old/:rw
+  #      - ${PHP82_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+  #      - ${PHP82_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+  #      - ${PHP82_LOG_DIR}:/var/log/php
+  #      - ${DATA_DIR}/composer:/tmp/composer
+  #    restart: always
+  #    cap_add:
+  #      - SYS_PTRACE
+  #    networks:
+  #      default:
+  #        ipv4_address: 10.0.0.23
+  #  dms_data_center:
+  #    build:
+  #      context: ./services/php81
+  #      args:
+  #        PHP_VERSION: php:${PHP81_VERSION}-fpm-alpine
+  #        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #        COMPOSER_URL: ${COMPOSER_URL}
+  #        PHP_EXTENSIONS: ${PHP81_EXTENSIONS}
+  #        TZ: "$TZ"
+  #    container_name: dms_data_center
+  #    expose:
+  #      - 9501
+  #    ports:
+  #      - "9701:9501"
+  #      - "9702:9601"
+  #      - "9703:9602"
+  #      - "9704:9603"
+  #    volumes:
+  #      - ${SOURCE_DIR}:/www/:rw
+  #      - ${OLD_SOURCE_DIR}:/old/:rw
+  #      - ${PHP81_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+  #      - ${PHP81_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+  #      - ${PHP81_LOG_DIR}:/var/log/php
+  #      - ${DATA_DIR}/composer:/tmp/composer
+  #    restart: always
+  #    cap_add:
+  #      - SYS_PTRACE
+  #    networks:
+  #      default:
+  #        ipv4_address: 10.0.0.23
+
+  php81-zt:
     build:
-      context: ./services/dms_data_center
+      context: ./services/php81
       args:
         PHP_VERSION: php:${PHP81_VERSION}-fpm-alpine
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
         COMPOSER_URL: ${COMPOSER_URL}
         PHP_EXTENSIONS: ${PHP81_EXTENSIONS}
         TZ: "$TZ"
-    container_name: dms_data_center
+    container_name: php81-zt
     expose:
       - 9501
     ports:
@@ -143,37 +174,6 @@ services:
     networks:
       default:
         ipv4_address: 10.0.0.23
-
-#  php81:
-#    build:
-#      context: ./services/php81
-#      args:
-#        PHP_VERSION: php:${PHP81_VERSION}-fpm-alpine
-#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-#        COMPOSER_URL: ${COMPOSER_URL}
-#        PHP_EXTENSIONS: ${PHP81_EXTENSIONS}
-#        TZ: "$TZ"
-#    container_name: php81
-#    expose:
-#      - 9501
-#    ports:
-#      - "9901:9501"
-#      - "9801:9601"
-#      - "9799:9602"
-#      - "9798:9603"
-#    volumes:
-#      - ${SOURCE_DIR}:/www/:rw
-#      - ${OLD_SOURCE_DIR}:/old/:rw
-#      - ${PHP81_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-#      - ${PHP81_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-#      - ${PHP81_LOG_DIR}:/var/log/php
-#      - ${DATA_DIR}/composer:/tmp/composer
-#    restart: always
-#    cap_add:
-#      - SYS_PTRACE
-#    networks:
-#      default:
-#        ipv4_address: 10.0.0.20
 
   php81-sale:
     build:
@@ -236,6 +236,37 @@ services:
     networks:
       default:
         ipv4_address: 10.0.0.24
+
+  php81-pmc:
+    build:
+      context: ./services/php81S3
+      args:
+        PHP_VERSION: php:${PHP81S3_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        COMPOSER_URL: ${COMPOSER_URL}
+        PHP_EXTENSIONS: ${PHP81S3_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: php81-pmc
+    expose:
+      - 9501
+    ports:
+      - "9711:9701"
+      - "9712:9702"
+      - "9713:9703"
+      - "9714:9704"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${OLD_SOURCE_DIR}:/old/:rw
+      - ${PHP81S3_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP81S3_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP81S3_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer:/tmp/composer
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      default:
+        ipv4_address: 10.0.0.25
 
 
 
@@ -539,34 +570,34 @@ services:
       - "${ELASTICSEARCH_HOST_PORT_C}:9200"
       - "${ELASTICSEARCH_HOST_PORT_S}:9300"
 
-#  kibana:
-#    image: kibana:7.17.0
-#    container_name: kibana
-#    environment:
-#      TZ: "$TZ"
-#      elasticsearch.hosts: http://elasticsearch:9200
-#      I18N_LOCALE: "${KIBANA_I18N_LOCALE}"
-#    hostname: kibana
-#    depends_on:
-#      - elasticsearch
-#    restart: always
-#    ports:
-#      - "${KIBANA_HOST}:5601"
-#
-#  logstash:
-#    image: logstash:${LOGSTASH_VERSION}
-#    container_name: logstash
-#    hostname: logstash
-#    restart: always
-#    depends_on:
-#      - elasticsearch
-#    environment:
-#      TZ: "$TZ"
-#    ports:
-#      - "${LOGSTASH_HOST_PORT_C}:9600"
-#      - "${LOGSTASH_HOST_PORT_S}:5044"
-#    volumes:
-#      - ./services/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  #  kibana:
+  #    image: kibana:7.17.0
+  #    container_name: kibana
+  #    environment:
+  #      TZ: "$TZ"
+  #      elasticsearch.hosts: http://elasticsearch:9200
+  #      I18N_LOCALE: "${KIBANA_I18N_LOCALE}"
+  #    hostname: kibana
+  #    depends_on:
+  #      - elasticsearch
+  #    restart: always
+  #    ports:
+  #      - "${KIBANA_HOST}:5601"
+  #
+  #  logstash:
+  #    image: logstash:${LOGSTASH_VERSION}
+  #    container_name: logstash
+  #    hostname: logstash
+  #    restart: always
+  #    depends_on:
+  #      - elasticsearch
+  #    environment:
+  #      TZ: "$TZ"
+  #    ports:
+  #      - "${LOGSTASH_HOST_PORT_C}:9600"
+  #      - "${LOGSTASH_HOST_PORT_S}:5044"
+  #    volumes:
+  #      - ./services/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
 
   #  node:
   #    image: node:${NODE_VERSION}
